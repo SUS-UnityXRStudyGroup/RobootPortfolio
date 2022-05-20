@@ -9,4 +9,9 @@ module.exports = defineConfig({
       title: "Roboot Portfolio",
     }
   },
+  pwa: {
+    iconPaths: {
+      favicon32: 'img/icons/favicon-32x32.png',
+    }
+  }
 })
