@@ -1,36 +1,43 @@
 <template>
-  <div class="container">
-    <img alt="Roboot Logo" src="./assets/Roboot.png">
+  <div class="bg">
+    <div class="overlap">
+      <div class="container">
+        <img alt="Roboot Logo" src="./assets/Roboot.png">
+      </div>
+      <transition>
+        <div class="reveal">
+          <about header="About"/>
+        </div>
+      </transition>
+      <transition>
+        <div class="reveal">
+          <pv header="PV"/>
+        </div>
+      </transition>
+      <transition>
+        <div class="reveal">
+          <tech header="Technology Introduction"/>
+        </div>
+      </transition>
+    </div>
   </div>
-  <transition>
-    <div class="reveal">
-      <About header="About"/>
-    </div>
-  </transition>
-  <transition>
-    <div class="reveal">
-        <PV header="PV"/>
-    </div>
-  </transition>
 </template>
 
 <script>
-import About from './components/About.vue'
-import PV from './components/PromotionVideo.vue'
+import about from './components/About.vue'
+import pv from './components/PromotionVideo.vue'
+import tech from './components/TechnologyIntroduction.vue'
 
 export default {
   name: 'App',
   components: {
-    About,
-    PV
+    about,
+    pv,
+    tech
   },
 
-  data() {
-    return {
-      visible: false,
-    };
-  },
   created() {
+    this.handleScroll();
     window.addEventListener("scroll", this.handleScroll);
   },
   methods: {
@@ -57,16 +64,23 @@ body {
   background-color: #000000;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=DotGothic16&family=Kiwi+Maru:wght@500&display=swap');
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'DotGothic16', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
+  font-size: x-large;
   color: #51c3c3;
 }
 
 h1{
   color: #ffffff;
+  font-family: 'Kiwi Maru', serif;
+}
+
+h2{
+  font-family: 'Kiwi Maru', serif;
 }
 </style>
 
@@ -90,4 +104,19 @@ div.container {
 div.container img {
   max-width: 100%;
 } 
+
+.bg{
+  width: 100%;
+  height: 100%;
+  left: 0px;
+  top: 0px;
+  background-image: url('@/assets/ingame_2.png');
+  background-position: center;
+  background-size: cover;
+  text-align: center;
+}
+
+.overlap{
+  background-color: rgba(0, 0, 0, 0.8);
+}
 </style>
